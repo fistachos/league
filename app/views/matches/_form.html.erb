@@ -1,0 +1,32 @@
+<%= form_for(@match) do |f| %>
+  <% if @match.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@match.errors.count, "error") %> prohibited this match from being saved:</h2>
+
+      <ul>
+      <% @match.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.datetime_select :date %>
+  </div>
+
+  <%= f.fields_for :match_scores do |score_fields| %>
+    <div class="field">
+      <%= score_fields.label :team %>
+      <%= score_fields.collection_select(:team_id, @teams, :id, :name) %>
+
+      <%= score_fields.label :score %>
+      <%= score_fields.number_field :score, min: 0, max: 10 %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

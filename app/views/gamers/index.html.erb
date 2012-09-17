@@ -1,0 +1,23 @@
+<h1>Listing gamers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @gamers.each do |gamer| %>
+  <tr>
+    <td><%= gamer.name %></td>
+    <td><%= link_to 'Show', gamer %></td>
+    <td><%= link_to 'Edit', edit_gamer_path(gamer) %></td>
+    <td><%= link_to 'Destroy', gamer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Gamer', new_gamer_path %>

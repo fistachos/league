@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>League</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<header>
+	<div id="banner">
+	BANNER
+	</div>
+	<nav>
+		<%= link_to 'newsy', news_index_path %> |
+		<%= link_to 'mecze', matches_path %> |
+		<%= link_to 'tabele', matches_path %> |
+		<%= link_to 'zespoły', teams_path %> 
+	</nav>
+</header>
+<div id="center">
+	<div id="content">
+		<%= yield %>
+	</div>
+	<footer>
+		Footer
+	</footer>
+</div>
+	<%= render 'layouts/login' %>
+</body>
+</html>

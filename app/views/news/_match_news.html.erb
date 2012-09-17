@@ -1,0 +1,8 @@
+<div class="body">
+  <h2>Rozegrano mecz</h2>
+  <span class="d"><%= edited_date(news) %></span>
+  <span class="text">Rozegrano <%= link_to 'mecz', news.match %>.</span>
+  <br/>
+  <%= link_to 'Edit', edit_news_path(news) %>
+  <%= link_to 'Destroy', news, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>

@@ -1,0 +1,39 @@
+$bannerBackground: #193922;
+$footerBackground: #0F2F19;
+$contentBackground: #193221;
+$textColor: #79463E;
+$menuButtonsColor: #DF7362;
+
+$contentWidth: 600px;
+
+body {
+	background: $contentBackground;
+	color: $textColor;
+	margin: 0;
+}
+
+#center {
+	width: $contentWidth;
+	margin: auto;
+	padding: 100px;
+}
+
+#footer {
+	background: $footerBackground;
+}
+
+#header {
+	background: $bannerBackground;
+	text-align: center;
+	position: fixed;
+	width: 100%;
+}
+
+#banner {
+	font-size: 50px;
+}
+
+#menu {
+	color: $menuButtonsColor;
+	text-align: center;
+}

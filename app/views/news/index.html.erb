@@ -1,0 +1,8 @@
+<h1>Aktualności</h1>
+
+<% if logged_in? %>
+	<%= link_to 'Add news', new_news_path %>
+<% end %>
+<% @news.each do |news| %>
+	<%= render "news/#{news.template}_news", :news => news %>
+<% end %>

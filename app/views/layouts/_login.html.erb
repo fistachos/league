@@ -1,0 +1,12 @@
+<div id="login">
+	<% if current_user %>
+		Logged in as <%= current_user.username %>. 
+		<%= link_to "Log out", logout_path %>
+	<% else %>
+		<%= form_tag sessions_path do %>
+		    U: <%= text_field_tag :username, params[:username] %>
+		    P: <%= password_field_tag :password %>
+		    <%= submit_tag "Log in" %>
+		<% end %>
+	<% end %>
+</div>
