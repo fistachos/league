@@ -1,21 +1,33 @@
 <h1>Mecze</h1>
 
 <% if logged_in? %>
-  <%= link_to 'Dodaj mecz...', new_match_path %>
+  <%= link_to 'Dodaj mecz', new_match_path %>
 <% end %>
 
 <table>
   <tr>
+    <th>data</th>
+    <th>godzina</th>
+    <th>drużyna 1</th>
+    <th>drużyna 2</th>
+    <th>wynik</th>
+    <% if logged_in? %>
     <th></th>
     <th></th>
-    <th></th>
+    <% end %>
   </tr>
 
 <% @matches.each do |match| %>
   <tr>
-    <td><%= link_to 'Show', match %></td>
-    <td><%= link_to 'Edit', edit_match_path(match) %></td>
-    <td><%= link_to 'Destroy', match, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= l match.date, :format => '%d.%m' %></td>
+    <td><%= l match.date, :format => '%H:%M' %></td>
+    <td><%= link_to match.first_team.name, match.first_team %></td>
+    <td><%= link_to match.second_team.name, match.second_team %></td>
+    <td><%= match.first_score %> : <%= match.second_score %></td>
+    <% if logged_in? %>
+      <td><%= link_to 'Edytuj', edit_match_path(match) %></td>
+      <td><%= link_to 'Skasuj', match, method: :delete, data: { confirm: 'Skasować?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

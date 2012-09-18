@@ -1,0 +1,17 @@
+table.table {
+	border: #000 1px solid;
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+table.table tr:nth-child(2) {
+	background: #FFCC00;
+}
+
+table.table tr:nth-child(3) {
+	background: #DCDCCA;
+}
+
+table.table tr:nth-child(4) {
+	background: #996600;
+}

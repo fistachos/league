@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  respond_to :html
+
+  before_filter :require_login, :only => :new, :create
+
   def new
   	@user = User.new
   end
@@ -8,7 +12,7 @@ class UsersController < ApplicationController
   	if @user.save
   		redirect_to root_url, :notice => "Signed up!"
   	else
-  		render new
+  		render :new
   	end
   end
 end

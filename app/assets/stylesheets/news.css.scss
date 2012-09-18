@@ -1,11 +1,16 @@
 h2 {
-	color: #505;
+	margin: 10px;
 }
 
 .body {
-	border: #F0F 1px dashed;
+	border-bottom: #AAA dotted 1px;
+	border-top: #AAA dotted 1px;
+	margin: 20px 0px;
+	padding: 5px 20px 10px;
 }
 
-.text {
-	color: #F0F;
+.date {
+	width: 100%;
+	font-size: 75%;
+	text-align: right;
 }

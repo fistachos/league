@@ -1,8 +1,14 @@
 <div class="body">
+	<div class="date">
+		<%= edited_date(news) %>
+	  <% if logged_in? %>
+	  <%= link_to 'Edytuj', edit_news_path(news) %>
+	  <%= link_to 'Skasuj', news, method: :delete, data: { confirm: 'Are you sure?' } %>
+	  <% end %>
+	</div>
   <h2>Rozegrano mecz</h2>
-  <span class="d"><%= edited_date(news) %></span>
-  <span class="text">Rozegrano <%= link_to 'mecz', news.match %>.</span>
-  <br/>
-  <%= link_to 'Edit', edit_news_path(news) %>
-  <%= link_to 'Destroy', news, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <span class="text">
+  	W dniu <%= l news.match.date, :format => '%d.%m o godzinie %H:%M' %> drużyny <%= link_to news.first_team.name, news.first_team %> oraz <%= link_to news.second_team.name, news.second_team %> rozegrały mecz, 
+  	który zakończył się wynikiem <%= news.first_score %>:<%= news.second_score %>.
+  </span>
 </div>

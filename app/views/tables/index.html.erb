@@ -1,1 +1,17 @@
 <h1>Tabele</h1>
+
+<table class="table">
+  <tr>
+    <th>drużyna</th>
+    <th>punkty</th>
+    <th>mecze</th>
+  </tr>
+
+<% @teams.each do |team| %>
+  <tr>
+    <td><%= team.name %></td>
+    <td><%= team.points %></td>
+    <td><%= team.matches %></td>
+  </tr>
+<% end %>
+</table>

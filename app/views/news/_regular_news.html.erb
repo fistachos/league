@@ -1,8 +1,11 @@
 <div class="body">
+	<div class="date">
+		<%= edited_date(news) %>
+	  <% if logged_in? %>
+	  <%= link_to 'Edytuj', edit_news_path(news) %>
+	  <%= link_to 'Skasuj', news, method: :delete, data: { confirm: 'Are you sure?' } %>
+	  <% end %>
+	</div>
   <h2><%= news.title %></h2>
-  <span class="d"><%= edited_date(news) %></span>
   <span class="text"><%= news.fulltext %></span>
-  <br/>
-  <%= link_to 'Edit', edit_news_path(news) %>
-  <%= link_to 'Destroy', news, method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>

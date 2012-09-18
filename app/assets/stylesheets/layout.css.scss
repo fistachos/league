@@ -1,21 +1,25 @@
-$bannerBackground: #CCC;
-$footerBackground: #DDD;
-$contentBackground: #EEE;
+$bannerBackground: #FFF;
+$footerBackground: #333;
+$contentBackground: #FFF;
 $textColor: #000;
-$menuButtonsColor: #345;
+$menuButtonsColor: #000;
 
 $contentWidth: 600px;
-$bannerHeight: 50px;
+$bannerHeight: 80px;
 $menuHeight: 20px;
 
 $loginPanelHeight: 25px;
-$loginPanelWidth: 450px;
+$loginPanelWidth: 230px;
 $loginPanelTabWidth: 10px;
 
 body {
-	background: $contentBackground;
+	background: $footerBackground;
 	color: $textColor;
 	margin: 0;
+}
+
+#background {
+	background: $contentBackground;
 }
 
 #center {
@@ -26,6 +30,9 @@ body {
 
 footer {
 	background: $footerBackground;
+	color: #FFF;
+	text-align: center;
+	padding-top: 5px;
 }
 
 header {
@@ -36,13 +43,22 @@ header {
 }
 
 #banner {
-	font-size: 50px;
 	height: $bannerHeight;
+	background: url(logo.png) no-repeat center;
 }
 
 nav {
 	color: $menuButtonsColor;
 	height: $menuHeight;
+	border-bottom: #AAA dotted 1px;
+}
+
+nav a:visited {
+	color: #F00;
+}
+
+footer a:visited {
+	color: #F00;
 }
 
 #login {
@@ -52,10 +68,29 @@ nav {
 	position: fixed;
 	padding-left: $loginPanelTabWidth;
 	top: $bannerHeight + $menuHeight;
-	right: $loginPanelTabWidth - $loginPanelWidth;
+	right: $loginPanelTabWidth - $loginPanelWidth - 1px;
+	border: #AAA dotted 1px;
 }
 
 #login:hover {
 	right: 0px;
-	-webkit-transition: right 1s ease;
+	-webkit-transition: right .5s ease;
+}
+
+#login input {
+	width: 50px;
+	background: $contentBackground;
+}
+
+a:link {
+	color: #F00;
+	text-decoration: none;
+}
+a:hover {
+	background: #000;
+	text-decoration: none;
+}
+a:visited {
+	color: #900;
+	text-decoration: none;
 }

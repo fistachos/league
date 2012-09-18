@@ -1,23 +1,27 @@
-<h1>Zespoły</h1>
-
+<h1>Drużyny</h1>
+<% if logged_in? %>
+<%= link_to 'Dodaj drużynę', new_team_path %>
+<% end %>
 <table>
   <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>nazwa</th>
+    <th>gracz 1</th>
+    <th>gracz 2</th>
+    <% if logged_in? %>
+        <th></th>
+        <th></th>
+    <% end %>
   </tr>
 
 <% @teams.each do |team| %>
   <tr>
-    <td><%= team.name %></td>
-    <td><%= link_to 'Show', team %></td>
-    <td><%= link_to 'Edit', edit_team_path(team) %></td>
-    <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to team.name, team %></td>
+    <td><%= team.player1 %></td>
+    <td><%= team.player2 %></td>
+    <% if logged_in? %>
+      <td><%= link_to 'Edytuj', edit_team_path(team) %></td>
+      <td><%= link_to 'Skasuj', team, method: :delete, data: { confirm: 'Skasować?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Team', new_team_path %>

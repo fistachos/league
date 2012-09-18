@@ -1,15 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @news.title %>
-</p>
+<%= render "news/#{@news.template}_news", :news => @news %>
 
-<p>
-  <b>Fulltext:</b>
-  <%= @news.fulltext %>
-</p>
-
-
-<%= link_to 'Edit', edit_news_path(@news) %> |
-<%= link_to 'Back', news_index_path %>
+<%= link_to 'Wróć...', news_index_path %>

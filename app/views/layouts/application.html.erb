@@ -7,26 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<header>
-	<div id="banner">
-	BANNER
+	<header>
+		<div id="banner">
+		</div>
+		<nav>
+			<%= link_to 'newsy', news_index_path %> |
+			<%= link_to 'mecze', matches_path %> |
+			<%= link_to 'tabele', '/tables' %> |
+			<%= link_to 'zespoły', teams_path %> 
+		</nav>
+	</header>
+	<div id="background">
+		<div id="center">
+			<%= yield %>
+		</div>
 	</div>
-	<nav>
-		<%= link_to 'newsy', news_index_path %> |
-		<%= link_to 'mecze', matches_path %> |
-		<%= link_to 'tabele', matches_path %> |
-		<%= link_to 'zespoły', teams_path %> 
-	</nav>
-</header>
-<div id="center">
-	<div id="content">
-		<%= yield %>
-	</div>
-	<footer>
-		Footer
-	</footer>
-</div>
+		<footer>
+			Made by Tomasz using <%= link_to 'Ruby on Rails', 'http://rubyonrails.pl/' %>.
+		</footer>
 	<%= render 'layouts/login' %>
-</body>
+	</body>
 </html>
