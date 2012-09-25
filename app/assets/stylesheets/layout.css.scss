@@ -6,6 +6,7 @@ $menuButtonsColor: #000;
 
 $contentWidth: 600px;
 $bannerHeight: 80px;
+$bannerWidth: 200px;
 $menuHeight: 20px;
 
 $loginPanelHeight: 25px;
@@ -43,8 +44,12 @@ header {
 }
 
 #banner {
-	height: $bannerHeight;
-	background: url(logo.png) no-repeat center;
+	margin: 15px auto 10px;
+	width: $bannerWidth;
+}
+
+#banner a:hover {
+	background: $bannerBackground;
 }
 
 nav {
