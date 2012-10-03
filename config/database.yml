@@ -21,6 +21,7 @@
 development:
   host: localhost
   adapter: mysql
+  encodind: utf8
   username: liga
   password: bsxq2ygdukqgdgq 
   database: liga
@@ -28,6 +29,7 @@ development:
 production:
   host: localhost
   adapter: mysql
+  encoding: utf8
   username: liga
   password: bsxq2ygdukqgdgq
   database: liga
@@ -35,6 +37,7 @@ production:
 test:
   host: localhost
   adapter: mysql
+  encoding: utf8
   username: liga
   password: bsxq2ygdukqgdgq
   database: liga

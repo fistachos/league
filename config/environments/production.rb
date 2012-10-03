@@ -1,3 +1,30 @@
+# KURWA! To jest do chuja podobne, że aby odpalić jebaną apkę w rails
+# musiałem przekompilować pół serwera, przeczytać więcej dokumentacji
+# niż w momencie kiedy pierdolnął RAID na 20 dyskach, zmienić globalny
+# config mysqla i na koniec dowiedzieć się, że jebany gem do mysqla
+# wypierdala się na utf-8. Przecież to taka nowoczesna, kurwa mać,
+# technologia... JASNY CHUJ! Mam już wyrobione zdanie o tym gównie. Ruby = 
+# gówno po meksykańsku chyba. Masz to zahardkodowane poniżej, bo oczywiście
+# apka chuja wie gdzie się znajduje... 
+#
+# http://gnuu.org/2009/11/06/ruby19-rails-mysql-utf8/
+#
+# pierdolę...
+
+require '/var/www/liga.pagenotfound.pl/lib/mysql_utf8.rb'
+
+# Tak, możesz już używać znaków powyżej ASCII, jak kurwa w 1992 roku...
+#  _______  _______  _______ _________ _______  _ 
+# (  ____ \/ ___   )(  ___  )\__    _/(  ____ \( )
+# | (    \/\/   )  || (   ) |   )  (  | (    \/| |
+# | (_____     /   )| (___) |   |  |  | (_____ | |
+# (_____  )   /   / |  ___  |   |  |  (_____  )| |
+#       ) |  /   /  | (   ) |   |  |        ) |(_)
+# /\____) | /   (_/\| )   ( ||\_)  )  /\____) | _ 
+# \_______)(_______/|/     \|(____/   \_______)(_)
+#
+# Pozdro, Łukasz
+
 League::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -31,7 +58,7 @@ League::Application.configure do
   # config.force_ssl = true
 
   # See everything in the log (default is :info)
-  # config.log_level = :debug
+   config.log_level = :debug
 
   # Prepend all log lines with the following tags
   # config.log_tags = [ :subdomain, :uuid ]
