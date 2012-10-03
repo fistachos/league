@@ -18,8 +18,51 @@
 </p>
 <p>
   <b>Mecze:</b>
-  <%= @team.matches %>
+  <%= @team.matches_count %>
 </p>
+<p>
+  <b>Gole zdobyte:</b>
+  <%= @team.goals_scored %>
+</p>
+<p>
+  <b>Gole stracone:</b>
+  <%= @team.goals_losed %>
+</p>
+<p>
+  Szczegóły:
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>przeciwnik</th>
+      <th>wynik</th>
+      <th>rewanż</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% Team.all.each do |team| %>
+      <% if team == @team then next end %>
+      <tr>
+        <td><%= team.name %></td>
+          <% if @team.matches_played(team).length > 0 then %>
+            <% match = @team.matches_played(team)[0] %>
+            <td class=<%= match.winner == @team ? "win" : "lose" %>>
+              <%= match.first_team == @team ? match.first_score : match.second_score %> : 
+              <%= match.first_team == @team ? match.second_score : match.first_score %>
+            </td>
+            <% if @team.matches_played(team).length > 1 then %>
+              <% match = @team.matches_played(team)[1] %>
+              <td class=<%= match.winner == @team ? "win" : "lose" %>>
+                <%= match.first_team == @team ? match.first_score : match.second_score %> : 
+                <%= match.first_team == @team ? match.second_score : match.first_score %>
+              </td>
+            <% end %>
+          <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 
 <% if logged_in? %>
 	<%= link_to 'Edytuj', edit_team_path(@team) %> |

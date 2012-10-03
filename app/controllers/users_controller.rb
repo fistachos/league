@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   respond_to :html
 
-  before_filter :require_login, :only => [:new, :create]
+  before_filter :require_login, :only => [:new, :create, :edit]
 
   def new
   	@user = User.new

@@ -5,13 +5,17 @@
     <th>drużyna</th>
     <th>punkty</th>
     <th>mecze</th>
+    <th>gole zdobyte</th>
+    <th>gole stracone</th>
   </tr>
 
 <% @teams.each do |team| %>
   <tr>
     <td><%= team.name %></td>
     <td><%= team.points %></td>
-    <td><%= team.matches %></td>
+    <td><%= team.matches_count %></td>
+    <td><%= team.goals_scored %></td>
+    <td><%= team.goals_losed %></td>
   </tr>
 <% end %>
 </table>

@@ -1,7 +1,7 @@
 class NewsController < ApplicationController
   respond_to :html
 
-  before_filter :require_login, :only => [:new, :create]
+  before_filter :require_login, :only => [:new, :create, :edit]
 
   def index
     @news = News.ordered
