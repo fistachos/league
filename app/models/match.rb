@@ -1,10 +1,10 @@
 class Match < ActiveRecord::Base
   attr_accessible :date, :match_scores_attributes
+
   has_many :match_scores
   has_one :news
   accepts_nested_attributes_for :match_scores
 
-  after_initialize :build_scores
   after_create :create_news
 
   scope :ordered, order("date desc")

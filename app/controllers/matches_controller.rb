@@ -7,6 +7,7 @@ class MatchesController < ApplicationController
 
   def new
     @match = Match.new
+    @match.build_scores
     @teams = Team.all
   end
 

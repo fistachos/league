@@ -3,6 +3,7 @@
 class Team < ActiveRecord::Base
   attr_accessible :name, :player1, :player2
 
+  validates :name,    :presence => true
   validates :player1, :presence => true
   validates :player2, :presence => true
 
