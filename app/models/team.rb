@@ -1,3 +1,5 @@
+#OMFG
+
 class Team < ActiveRecord::Base
   attr_accessible :name, :player1, :player2
 
