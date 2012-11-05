@@ -3,6 +3,9 @@
 class Team < ActiveRecord::Base
   attr_accessible :name, :player1, :player2
 
+  has_many :match_scores
+  has_many :matches, through: :match_scores
+
   validates :name,    :presence => true
   validates :player1, :presence => true
   validates :player2, :presence => true
@@ -10,29 +13,17 @@ class Team < ActiveRecord::Base
   scope :ordered, order("name")
 
   def points
-  	points=0
-  	Match.all.each do |match|
-  		if match.winner == self
-  			points+=1
-  		end
-  	end
-  	points
+  	match_scores.won.count
   end
 
   def goals_scored
-    points=0
-    Match.all.each do |match|
-      if match.first_team == self
-        points+=match.first_score
-      end
-      if match.second_team == self
-        points+=match.second_score
-      end
-    end
-    points
+    match_scores.sum(:score)
   end
 
   def goals_losed
+    #I'll get to you...
+    #Killa
+
     points=0
     Match.all.each do |match|
       if match.first_team == self
@@ -46,17 +37,8 @@ class Team < ActiveRecord::Base
   end
 
   def matches_count
-    matches.length
-  end
-
-  def matches
-    matches = []
-    Match.all.each do |match|
-      if match.first_team == self || match.second_team == self
-        matches << match
-      end
-    end
-    matches
+    #TODO: Move .count to views, remove matches_count
+    matches.count
   end
 
   def matches_played(team)

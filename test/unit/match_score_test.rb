@@ -1,11 +1,13 @@
 require 'test_helper'
 
-class MatchTest < ActiveSupport::TestCase
-  setup do
-    @match_score = FactoryGirl.build(:match_score)
+class MatchScoreTest < ActiveSupport::TestCase
+  test "match score saves successfully" do
+    assert FactoryGirl.create(:match_score)
   end
 
-  test "match score saves successfully" do
-    assert @match_score.save
+  test "won scope returns match scores with score 10" do
+    lost_score = FactoryGirl.create(:match_score)
+    won_score  = FactoryGirl.create(:match_score, score: 10)
+    assert_equal [won_score], MatchScore.won
   end
 end

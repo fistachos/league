@@ -4,6 +4,9 @@ class MatchScore < ActiveRecord::Base
   belongs_to :match
   belongs_to :team
 
+  scope :won, where(score: 10)
+  scope :lost, where("score < 10")
+
   validates :team_id, :presence => true
   validates :score, :presence => true,
                     :numericality => {
