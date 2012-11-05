@@ -1,6 +1,4 @@
 class GamersController < ApplicationController
-  respond_to :html
-
   def index
     @gamers = Gamer.all
   end

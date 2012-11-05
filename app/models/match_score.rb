@@ -4,11 +4,11 @@ class MatchScore < ActiveRecord::Base
   belongs_to :match
   belongs_to :team
 
-  validates	:team_id,	:presence => true
-  validates :score,		:presence => true,
-  						:numericality => {
-  							:only_integer => true,
-  							:greater_than_or_equal_to => 0,
-  							:less_than_or_equal_to => 10
-  						}
+  validates :team_id, :presence => true
+  validates :score, :presence => true,
+                    :numericality => {
+                      :only_integer => true,
+                      :greater_than_or_equal_to => 0,
+                      :less_than_or_equal_to => 10
+                    }
 end

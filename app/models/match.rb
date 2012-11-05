@@ -10,9 +10,9 @@ class Match < ActiveRecord::Base
   scope :ordered, order("date desc")
 
   def build_scores
-  	if match_scores.size < 2
-  		match_scores.build
-		  match_scores.build
+    if match_scores.size < 2
+      match_scores.build
+      match_scores.build
     end
   end
 
