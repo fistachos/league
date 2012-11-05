@@ -1,3 +1,5 @@
+#Wtf is this shit...
+
 require 'mysql'
 
 class Mysql::Result
